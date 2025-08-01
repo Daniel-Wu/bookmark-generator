@@ -116,12 +116,14 @@ class HeightMapper {
 ```
 
 #### Input Validation Requirements:
+
 - **File size**: Max 10MB
 - **Dimensions**: Max 4096x4096px
 - **Formats**: PNG, JPG, GIF, WebP only
 - **Color depth**: Handle 8-bit and 16-bit channels
 
 #### Error Cases:
+
 - Corrupted image files
 - Unsupported formats
 - Memory allocation failures
@@ -130,13 +132,15 @@ class HeightMapper {
 #### Algorithm Specifications:
 
 **K-Means Color Quantization:**
+
 1. Sample pixels (max 10K samples for performance)
 2. Initialize centroids using k-means++ algorithm
 3. Iterate until convergence (max 50 iterations, convergence threshold 0.1)
 4. Assign all pixels to nearest centroid using Euclidean distance in RGB space
 
 **Height Mapping:**
-1. Calculate perceived luminance: 0.299*R + 0.587*G + 0.114*B
+
+1. Calculate perceived luminance: 0.299*R + 0.587*G + 0.114\*B
 2. Sort colors by luminance (lightest to darkest)
 3. Map to height levels: lightest = 0, darkest = 1
 4. Generate height map by replacing each pixel with its color's height value
@@ -150,7 +154,7 @@ class BookmarkGeometryGenerator {
   generateBookmark(
     heightMap: Float32Array,
     parameters: BookmarkParameters,
-    imageSize: {width: number, height: number}
+    imageSize: { width: number; height: number }
   ): BookmarkGeometry;
 }
 
@@ -164,11 +168,13 @@ class MeshOptimizer {
 ```
 
 #### Performance Requirements:
+
 - Max 100K vertices per layer
 - Generation time <5 seconds for typical bookmark
 - Memory usage <500MB during generation
 
 #### Geometry Generation Algorithm:
+
 1. Generate base layer (full outline with rounded corners)
 2. Extract unique height levels from height map
 3. For each height level:
@@ -203,6 +209,7 @@ class MaterialManager {
 ```
 
 #### Rendering Specifications:
+
 - **Lighting**: Hemisphere light + directional light with shadows
 - **Materials**: PBR materials with color-based properties
 - **Camera**: Perspective camera with orbit controls
@@ -233,15 +240,17 @@ class FileDownloadManager {
 #### File Format Specifications:
 
 **STL Format (Binary):**
+
 - Header: 80 bytes (application identifier)
 - Triangle count: 4 bytes (little endian)
 - Triangles: 50 bytes each (normal vector + 3 vertices + attribute bytes)
 - Combine all layers into single mesh
 
 **3MF Format:**
+
 - ZIP archive containing:
   - [Content_Types].xml - MIME type definitions
-  - _rels/.rels - Relationship definitions
+  - \_rels/.rels - Relationship definitions
   - 3D/3dmodel.model - XML with mesh data and materials
   - Metadata/thumbnail.png - Preview image
 - Multi-material support with color assignments per layer
@@ -281,17 +290,20 @@ App
 ### State Management
 
 #### Global State (React Context):
+
 - Image processing state
 - Bookmark parameters
 - Generated geometry
 - UI state (active panels, notifications)
 
 #### Component-Level State:
+
 - Form inputs (controlled components)
 - Animation states
 - Temporary UI states
 
 #### State Update Flow:
+
 1. User action triggers event handler
 2. Handler validates input and updates global state
 3. State change triggers relevant component re-renders
@@ -300,6 +312,7 @@ App
 ## Error Handling & Recovery
 
 ### Error Categories
+
 1. **User Input Errors**: Invalid files, out-of-range parameters
 2. **Processing Errors**: Memory allocation failures, algorithm convergence issues
 3. **Export Errors**: File system access denied, format compatibility issues
@@ -317,6 +330,7 @@ class ErrorHandler {
 ```
 
 #### Error Recovery Actions:
+
 - **Memory Limit**: Suggest image resize, reduce color count
 - **Invalid Format**: Show supported format instructions
 - **Quantization Failed**: Fallback to simple color reduction
@@ -326,12 +340,14 @@ class ErrorHandler {
 ## Validation Rules
 
 ### File Upload Validation:
+
 - **File size**: 100KB - 10MB
 - **Dimensions**: 50x50px - 4096x4096px
 - **Format**: Must have valid image header
 - **Color depth**: 8-bit or 16-bit per channel
 
 ### Parameter Validation:
+
 - **Color count**: Integer 2-8
 - **Layer thickness**: Float 0.1-0.5mm
 - **Base thickness**: Float 1-3mm
@@ -341,18 +357,21 @@ class ErrorHandler {
 ## Performance Requirements
 
 ### Processing Performance
+
 - **Image quantization**: <3 seconds for 2MP images
 - **Geometry generation**: <5 seconds total
 - **Real-time parameter updates**: <100ms response time
 - **3D rendering**: 30+ FPS on modern hardware
 
 ### Memory Constraints
+
 - **Peak memory usage**: <500MB during processing
 - **Image data cleanup** after processing
 - **Geometry data cleanup** after export
 - **Browser memory leak prevention**
 
 ### Browser Compatibility
+
 - **Chrome 90+** (primary target)
 - **Firefox 88+** (secondary target)
 - **Safari 14+** (secondary target)

@@ -47,6 +47,7 @@
 ## Visual Design System
 
 ### Color Palette
+
 - **Primary**: #2563eb (Blue 600)
 - **Secondary**: #64748b (Slate 500)
 - **Success**: #059669 (Emerald 600)
@@ -56,11 +57,13 @@
 - **Surface**: #ffffff (White)
 
 ### Typography
+
 - **Headings**: Inter, 600 weight
 - **Body**: Inter, 400 weight
 - **Code/Technical**: JetBrains Mono, 400 weight
 
 ### Components Style
+
 - **Border radius**: 8px for cards, 6px for buttons
 - **Shadows**: Subtle drop shadows with shadow-lg for cards
 - **Buttons**: Solid primary, outline secondary, ghost tertiary
@@ -242,18 +245,21 @@ Quantizing colors...
 ## Responsive Behavior
 
 ### Desktop Experience (1200px+)
+
 - Split-screen layout with controls on left, preview on right
 - All controls visible simultaneously
 - Hover states and tooltips for enhanced discoverability
 - Keyboard shortcuts for power users
 
 ### Tablet Experience (768px - 1199px)
+
 - Stacked layout with collapsible panels
 - Touch-optimized controls (larger targets)
 - Swipe gestures for 3D preview manipulation
 - Simplified parameter controls
 
 ### Mobile Experience (< 768px)
+
 - Tab-based navigation between major sections
 - Single-column layout with vertical stacking
 - Thumb-friendly touch targets
@@ -262,18 +268,21 @@ Quantizing colors...
 ## Accessibility Considerations
 
 ### Keyboard Navigation
+
 - Tab order follows logical flow: Upload → Parameters → Preview → Export
 - Arrow key navigation within parameter groups
 - Space/Enter for buttons, arrows for sliders
 - Escape to close modals/dropdowns
 
 ### Screen Reader Support
+
 - Semantic HTML structure with proper headings
 - ARIA labels for interactive elements
 - Live regions for dynamic content updates
 - Alt text for all images and icons
 
 ### Visual Accessibility
+
 - High contrast mode support
 - Scalable text (up to 200% zoom)
 - Color-blind friendly palette

@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --color-primary: #2563eb;
+    --color-secondary: #64748b;
+    --color-success: #059669;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+}
